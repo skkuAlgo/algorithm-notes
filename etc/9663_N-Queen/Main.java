@@ -36,48 +36,32 @@ public class Main {
         if(count>N) return;
 
         // 갈 수 없는 위치 표시
-        // 상
-        if(x!=0){
-            for(int i=1; i<=x; i++){
-                if(arr[x-i][y] == 0){
-                    arr[x-i][y] = -1;
+        // 8방향: 상, 하, 좌, 우, 좌상, 우상, 좌하, 우하
+        int[] dx = {-1, 1, 0, 0, -1, -1, 1, 1};
+        int[] dy = {0, 0, -1, 1, -1, 1, -1, 1};
+
+        for (int d = 0; d < 8; d++) {
+            int nx = x + dx[d];
+            int ny = y + dy[d];
+
+            // 해당 방향으로 끝까지 진행
+            while (nx >= 0 && nx < N && ny >= 0 && ny < N) {
+                if (arr[nx][ny] == 0) {
+                    arr[nx][ny] = -1;
                 }
+
+                nx += dx[d];
+                ny += dy[d];
             }
         }
-        
-        // // 하
-        if(x!=N-1){
-            for(int i=1; i<=N-x-1; i++){
-                if(arr[x+i][y] == 0){
-                    arr[x+i][y] = -1;
-                }
-            }
-        }
-        
-        // // 좌
-        if(y!=0){
-            for(int i=1; i<=y; i++){
-                if(arr[x][y-i] == 0){
-                    arr[x][y-i] = -1;
-                }
-            }
-        }
-        
-        // // 우
-        if(y!=N-1){
-            for(int i=1; i<=N-y-1; i++){
-                if(arr[x][y+i] == 0){
-                    arr[x][y+i] = -1;
-                }
-            }
-        }
+
         
         // System.out.println("count: "+count);
         // 종료 확인
         if(count == N){
             // System.out.println("count: "+count);
             result ++;
-            print(arr,N);
+            // print(arr,N);
             return;
         } 
         else{
