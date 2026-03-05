@@ -9,10 +9,14 @@ public class Main {
         String word = sc.next();
         sc.close();
         int[] result = new int['z'-'a'+1];
+        // for(int i=0; i<word.length(); i++){
+        //     for(int j='a'; j<='z'; j++){
+        //         if(word.charAt(i) == j) result[j-'a']++;
+        //     }
+        // }
+
         for(int i=0; i<word.length(); i++){
-            for(int j='a'; j<='z'; j++){
-                if(word.charAt(i) == j) result[j-'a']++;
-            }
+            result[word.charAt(i)-'a']++;
         }
 
         for(int i=0; i<'z'-'a'+1; i++){
