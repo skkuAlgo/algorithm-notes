@@ -22,6 +22,10 @@ public class Main {
             }
         }
 
+        if(countZero == 0){
+            System.out.print(0);
+            return;
+        }
 
         // 상 하 좌 우
         int[] dx = new int[]{0, 0, -1, 1};
