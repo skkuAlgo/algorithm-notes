@@ -17,7 +17,6 @@ public class Main {
                 int num = Integer.parseInt(parts[1]);
                 arr[tail] = num;
                 tail++;
-                // check(arr,tail,head);
             }
             else if(parts[0].equals("pop")){
                 if(head == tail) System.out.println(-1);
@@ -46,15 +45,5 @@ public class Main {
                 }
             }
         }
-    }
-
-    public static void check(int[] arr, int tail, int head){
-        System.out.print("[ ");
-        for(int i=0; i<tail; i++){
-            System.out.print(arr[i] + " ");
-        }
-        System.out.print("]");
-        System.out.println();
-        System.out.println("head: " + head + " tail: "+ tail);
     }
 }

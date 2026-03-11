@@ -10,18 +10,15 @@ public class Main {
 
         // 0:빈 공간  8:queen  -1:놓을 수 없는 공간
         int[][] arr = new int[N][N];
-        int[][] arr2 = new int[N][N];
+        ArrayList<int[]> queen = new ArrayList<>();
+
         for(int i=0; i<N; i++){
             for(int j=0; j<N; j++){
                 // 맨 처음 queen위치 선정 (지나간 모든 빈칸?은 사용 불가로 만들어야 함)
                 arr = new int[N][N];
-                for (int r = 0; r < N; r++) {
-                    arr[r] = arr2[r].clone();
-                }
                 cantGo(i,j,arr,N,0);
                 
                 
-                arr2[i][j] = -1;
             }
         }
         System.out.println(result);
@@ -31,7 +28,7 @@ public class Main {
 
     public static void cantGo(int x, int y, int[][] arr, int N, int count){
         arr[x][y] = 8;
-        // 퀸의 수가 N개 이상이면 무시 (0더해줌)
+        // 퀸의 수가 N개 이상이면 무시 
         count++;
         if(count>N) return;
 
