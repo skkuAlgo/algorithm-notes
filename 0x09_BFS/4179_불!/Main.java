@@ -55,6 +55,7 @@ public class Main {
             checkJ = 0;
             for(int j=0; j<nextJ; j++){
                 int[] jNow = jQ.poll();
+                if(arr[jNow[0]][jNow[1]] == 'F') continue;
                 for(int i=0; i<4; i++){
                     int jNew_r = jNow[0] + dr[i];
                     int jNew_c = jNow[1] + dc[i];
@@ -79,8 +80,6 @@ public class Main {
 
                     fQ.offer(new int[]{fNew_r,fNew_c});
                     checkF++;
-                    // 여기서 지훈 위치 확인해서 queue에서 빼야 함
-                    jQ.remove(new int[]{fNew_r,fNew_c});
                     arr[fNew_r][fNew_c] = 'F';
                 }
             }
