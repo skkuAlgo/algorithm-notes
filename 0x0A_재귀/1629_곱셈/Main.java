@@ -1,22 +1,28 @@
-import java.util.*;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        Scanner sc = new Scanner(System.in);
-        int A = sc.nextInt();
-        int B = sc.nextInt();
-        int C = sc.nextInt();
-        int res = 1;
-        sc.close();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        String[] arr = s.split(" ");
+        int A = Integer.parseInt(arr[0]);
+        int B = Integer.parseInt(arr[1]);
+        int C = Integer.parseInt(arr[2]);
+        
 
-        while(B>=1){
-            res *= A;
-            res %= C;
-            B--;
+        System.out.print(mod(A,B,C));
+
+    }
+
+    public static long mod(int a, int b, int c){
+        if(b == 1) return a%c;
+
+        long half = mod(a, b/2, c);
+        if(b%2 == 0){
+            return half*half%c;
+        }else{
+            return (half*half%c) * (a%c) %c;
         }
-
-        System.out.print(res);
-
     }
 }
 
