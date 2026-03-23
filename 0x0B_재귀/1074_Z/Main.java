@@ -1,6 +1,7 @@
 import java.io.*;
 
 public class Main {
+    public static int[][] arr;
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
@@ -15,9 +16,9 @@ public class Main {
             len *= 2;
         }
 
-        int[][] arr = new int[len][len];
+        arr = new int[len][len];
 
-        Z(0,0,len,arr);
+        Z(0,0,len);
 
         // for(int i=0; i<len; i++){
         //     for(int j=0; j<len; j++){
@@ -31,7 +32,7 @@ public class Main {
 
     public static int check = 0;
 
-    public static void Z(int x, int y, int r, int[][] arr){
+    public static void Z(int x, int y, int r){
         if(r == 2){
             arr[x][y] = check*4 + 0;
             arr[x][y+1] = check*4 + 1;
@@ -40,10 +41,10 @@ public class Main {
             check++;
         }
         else{
-            Z(x, y, r/2, arr);
-            Z(x, y+r/2, r/2, arr);
-            Z(x+r/2, y, r/2, arr);
-            Z(x+r/2, y+r/2, r/2, arr);
+            Z(x, y, r/2);
+            Z(x, y+r/2, r/2);
+            Z(x+r/2, y, r/2);
+            Z(x+r/2, y+r/2, r/2);
         }
     }
 }
