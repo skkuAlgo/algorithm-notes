@@ -11,15 +11,10 @@ public class Main {
         Queue<Integer> q = new LinkedList<>(); 
         q.offer(N);
         arr[N] = 1;
-        int answer = 0;
 
         while(!q.isEmpty()){
             int num = q.poll();
             int c = arr[num];
-            // if(num-1 == N || num+1 == N || num*2 == N){
-            //     answer = c+1;
-            //     break;
-            // }
             
             if(num-1 >= 0 && arr[num-1] == 0){
                 arr[num-1] = c+1;
@@ -36,7 +31,6 @@ public class Main {
 
         }
 
-        // System.out.print(answer+1);
         System.out.print(arr[K]-1);
          
     }
